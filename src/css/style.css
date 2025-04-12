@@ -1,0 +1,244 @@
+/* Header */
+.header {
+  background-color: var(--neutral-color);
+  color: var(--dark-grey);
+  padding: 20px;
+  padding-inline: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  width: 30%;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--neutral-color);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Main */
+
+/* Search Bar */
+.search-bar {
+  width: 40%;
+  height: 50px;
+  background-color: var(--light-grey);
+  border-radius: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar input {
+  width: 80%;
+  height: 100%;
+  text-indent: 15px;
+  background-color: transparent;
+}
+
+.search-bar button {
+  width: 20%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.045);
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.search-bar button:hover {
+  background-color: var(--secondary-color);
+  color: var(--neutral-color);
+  cursor: pointer;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  gap: 15px;
+}
+
+.nav a {
+  color: var(--dark-grey);
+  font-size: var(--large-font);
+  padding: 10px;
+}
+
+.nav a:hover {
+  background-color: var(--primary-color);
+  color: var(--neutral-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  background-color: var(--light-grey);
+  /* SUGGESTION: Replace with an image */
+  padding: 50px;
+  position: relative;
+  /* Required for absolute positioning of child elements */
+  padding-block: 250px;
+}
+
+.hero-center-info {
+  width: 30%;
+  gap: 90px;
+}
+
+.hero-center {
+  position: absolute;
+  /* Make it absolutely positioned */
+  top: 50%;
+  /* Center vertically */
+  left: 50%;
+  /* Center horizontally */
+  transform: translate(-50%, -50%);
+  /* Adjust for the element's own dimensions */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-abs-left {
+  position: absolute;
+  /* Position it relative to the .hero container */
+  top: 50%;
+  /* Align vertically with the center */
+  left: 5%;
+  /* Stick to the left edge */
+  transform: translateY(-50%);
+  /* Adjust for vertical centering */
+}
+
+/* Cards */
+.recommend-destination-card {
+  background-color: var(--neutral-color);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  text-align: left;
+  max-width: 400px;
+  max-height: 250px;
+  gap: 30px
+}
+
+.recommend-destination-card:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  background-color: var(--neutral-color);
+}
+
+.recommend-destination-card .destination-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.recommend-destination-card .horizontal {
+  gap: 20px;
+}
+
+.destination-info {
+  height: 100%;
+  gap: 10px;
+}
+
+.destination-info p {
+  font-size: 0.7em;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+}
+
+.destination-card {
+  width: 100%;
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.destination-card img {
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+}
+.destination-card .img {
+  position: relative;
+}
+.destination-card .img .img-info-shadow {
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  background: transparent;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0)), rgba(0, 0, 0, 0);
+  opacity: 0;
+}
+
+.destination-card .img .img-info {
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  color: var(--neutral-color);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+}
+.img-info p {
+  color: var(--neutral-color);
+}
+
+.destination-card:hover .img-info {
+  opacity: 1;
+}
+.destination-card:hover .img-info-shadow {
+  opacity: 1;
+}
+
+/* Buttons */
+.explore-button {
+  background-color: var(--neutral-color);
+  color: var(--dark-grey);
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  padding-inline: 70px;
+  font-weight: 600;
+}
+
+.explore-button:hover {
+  background-color: var(--primary-color);
+  color: var(--neutral-color);
+  cursor: pointer;
+}
+
+/* Sections */
+.sections {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+.section {
+  text-align: center;
+}
+
+/* Destinations */
+.destinations-grid {
+  gap: 25px;
+}
