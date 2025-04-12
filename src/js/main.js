@@ -1,4 +1,8 @@
 import { loadHeaderFooter, loadDates } from './utils.mjs';
 
-await loadHeaderFooter();
-loadDates();
+async function init() {
+    await loadHeaderFooter();
+    loadDates();
+}
+
+init();
