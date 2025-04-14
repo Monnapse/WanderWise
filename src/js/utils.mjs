@@ -51,13 +51,12 @@ export function formatDate(date, format) {
 export function loadDates() {
   // Get dates attribute from tags ex: <span date="year">
   const dateElements = document.querySelectorAll("[date]");
-  console.log(dateElements)
 
   dateElements.forEach((element) => {
     const date = new Date();
     const dateFormat = element.getAttribute("date") || "dd/mm/yyyy";
     element.classList.add("date");
-    console.log(date);
+
     element.innerText = formatDate(date, dateFormat);
   });
 }
