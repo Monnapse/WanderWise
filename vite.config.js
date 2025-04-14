@@ -1,5 +1,6 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import commonjs from 'vite-plugin-commonjs';
 
 export default defineConfig({
   root: "src/",
