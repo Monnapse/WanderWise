@@ -13,7 +13,7 @@ export default defineConfig({
         main: resolve(__dirname, "src/index.html"),
         destinations: resolve(__dirname, "src/destinations.html"),
         random: resolve(__dirname, "src/random.html"),
-        favorites: resolve(__dirname, "src/index.html"),
+        favorites: resolve(__dirname, "src/favorites.html"),
       },
     },
   },
