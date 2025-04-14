@@ -4,6 +4,7 @@ import commonjs from 'vite-plugin-commonjs';
 
 export default defineConfig({
   root: "src/",
+  publicDir: "../public",
   plugins: [commonjs()], // Add the CommonJS plugin
   build: {
     outDir: "../dist",
