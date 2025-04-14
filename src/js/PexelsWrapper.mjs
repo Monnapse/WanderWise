@@ -1,17 +1,31 @@
-import { createClient } from 'pexels';
+import RESTClient from './RESTClient.mjs';
 
 export default class PexelsWrapper {
     constructor(apiKey) {
-        this.client = createClient(apiKey);
+        //this.client = createClient(apiKey);
+        this.baseUrl = 'https://api.pexels.com/v1/';
     }
 
     async searchPhotos(query, perPage=10, page=1) {
         try {
-            const response = await this.client.photos.search({
-                query: query,
-                per_page: perPage,
-                page: page
-            });
+            const restClient = new RESTClient(this.baseUrl + 'search');
+            //const response = await this.getWithData(restClient, fields);
+            const response = await restClient.get(
+                {
+                    query: query,
+                    per_page: perPage,
+                    page: page
+                },
+                {
+                    Authorization: import.meta.env.VITE_PEXELS_API_KEY
+                }
+            );
+
+            //const response = await this.client.photos.search({
+            //    query: query,
+            //    per_page: perPage,
+            //    page: page
+            //});
             return response.photos;
         } catch (error) {
             console.error('Fetch error:', error);
