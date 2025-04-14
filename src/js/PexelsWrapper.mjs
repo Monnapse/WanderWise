@@ -21,6 +21,12 @@ export default class PexelsWrapper {
     async getRandomPhoto(query, searchAmount=5) {
         try {
             const photos = await this.searchPhotos(query, searchAmount, 1);
+
+            if (photos.length === 0) {
+                console.error('No photos found for query:', query);
+                return null;
+            }
+
             const randomIndex = Math.floor(Math.random() * searchAmount);
             return photos[randomIndex].src.large2x;
         } catch (error) {

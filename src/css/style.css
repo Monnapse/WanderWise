@@ -230,6 +230,19 @@
   cursor: pointer;
 }
 
+.fav-btn {
+  background-color: var(--neutral-color);
+  color: var(--dark-grey);
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.favorite {
+  background-color: var(--primary-color);
+  color: var(--neutral-color);
+  cursor: pointer;
+}
+
 /* Sections */
 .sections {
   display: flex;
@@ -248,4 +261,74 @@
 .destinations-grid {
   gap: 25px;
   width: 100%;
+}
+
+/* Responsiveness */
+@media (max-width: 1440px) { 
+  .nav a {
+    font-size: 0.8em;
+  }
+  .header h1 {
+    font-size: 1em;
+    width: 20%;
+  }
+  .hero {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero * {
+    position: relative;
+    transform: none;
+  }
+  .hero-center-info {
+    width: 100%;
+    gap: 20px;
+  }
+  .hero-center {
+    left: 0;
+  }
+  .hero-abs-left {
+    left: 0;
+    top: 0;
+    transform: none;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hero-center-info {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .hero-center {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;  
+  }
+  .nav a {
+    text-align: center;
+    width: 100%;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
 }

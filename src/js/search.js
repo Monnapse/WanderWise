@@ -5,13 +5,14 @@ async function init() {
     searchButton.addEventListener("click", async () => {
         const search = searchInput.value.trim();
         if (search) {
-            const url = new URL(window.location.href);
+            const url = new URL(window.location.origin + "/destinations");
             url.searchParams.set("q", search);
             window.location.href = url.toString();
         }
     });
 
     // Replace search input with current query param
+    // And changes to destinations page
     const urlParams = new URLSearchParams(window.location.search);
     const q = urlParams.get('q');
     if (q) {

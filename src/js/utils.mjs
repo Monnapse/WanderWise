@@ -76,6 +76,43 @@ export function updateRecommendedCard(name, temp, fact, img) {
   factElem.innerText = fact;
 }
 
+export function isFavorite(name) {
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  return favorites.some((favorite) => favorite === name);
+}
+
+export function addFavorite(name) {
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  if (!favorites.includes(name)) {
+    favorites.push(name);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }
+}
+
+export function removeFavorite(name) {
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  if (favorites.includes(name)) {
+    const index = favorites.indexOf(name);
+    favorites.splice(index, 1);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }
+}
+
+export function toggleFavorite(name) {
+  const favorited = isFavorite(name);
+
+  if (favorited) {
+    removeFavorite(name);
+    return false;
+  } else {
+    addFavorite(name);
+    return true;
+  }
+}
+
 export function createCard(name, temp, img) {
   /*
     <div class="destination-card">
@@ -93,6 +130,8 @@ export function createCard(name, temp, img) {
   const card = document.createElement("div");
   card.classList.add("destination-card");
 
+  const currentFavorited = isFavorite(name);
+
   // TODO: Check if place is favorited and add functionality to the favorite button
   card.innerHTML = `
     <div class="img">
@@ -100,11 +139,26 @@ export function createCard(name, temp, img) {
       <div class="img-info-shadow"></div>
       <div class="img-info">
         <p>${temp}</p>
-        <button id="fav-btn">FAV</button>
+        <button id="fav-btn" class="fav-btn ${currentFavorited ? "favorite" : null}">${currentFavorited ? "UNFAV" : "FAV"}</button>
       </div>
     </div>
     <p>${name}</p>
   `
+
+  card.querySelector("#fav-btn").addEventListener("click", (e) => {
+    console.log("Clicked fav button");
+    const btn = e.target;
+
+    const favorited = toggleFavorite(name);
+
+    if (favorited) {
+      btn.innerText = "UNFAV";
+      btn.classList.add("favorite");
+    } else {
+      btn.innerText = "FAV";
+      btn.classList.remove("favorite");
+    }
+  });
 
   return card;
 }
@@ -116,8 +170,13 @@ export function replaceCards(places, container) {
 
   places.forEach((place) => {
     const card = createCard(place.name, place.temp, place.img);
-
-    cardsContainer.insertAdjacentHTML("beforeend", card.outerHTML);
+    cardsContainer.appendChild(card);
+    
   });
 }
 
+export function getFavorites() {
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  return favorites;
+}
