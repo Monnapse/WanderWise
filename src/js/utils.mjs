@@ -60,3 +60,64 @@ export function loadDates() {
     element.innerText = formatDate(date, dateFormat);
   });
 }
+
+export function updateRecommendedCard(name, temp, fact, img) {
+  const imgElem = document.querySelector("#recommended-card-img");
+  imgElem.src = img;
+  imgElem.alt = name;
+
+  const nameElem = document.querySelector("#recommended-card-name");
+  nameElem.innerText = name;
+
+  const tempElem = document.querySelector("#recommended-card-temp");
+  tempElem.innerText = temp;
+
+  const factElem = document.querySelector("#recommended-card-fact");
+  factElem.innerText = fact;
+}
+
+export function createCard(name, temp, img) {
+  /*
+    <div class="destination-card">
+      <div class="img">
+        <img src="/images/eiffel_tower.jpg" alt="Eiffel Tower" class="destination-image" />
+        <div class="img-info-shadow"></div>
+        <div class="img-info">
+          <p>72°F Sunny</p>
+          <button id="fav-btn">FAV</button>
+        </div>
+      </div>
+      <p>Paris, France</p>
+    </div>
+  */
+  const card = document.createElement("div");
+  card.classList.add("destination-card");
+
+  // TODO: Check if place is favorited and add functionality to the favorite button
+  card.innerHTML = `
+    <div class="img">
+      <img src="${img}" alt="${name}" class="destination-image" />
+      <div class="img-info-shadow"></div>
+      <div class="img-info">
+        <p>${temp}</p>
+        <button id="fav-btn">FAV</button>
+      </div>
+    </div>
+    <p>${name}</p>
+  `
+
+  return card;
+}
+
+export function replaceCards(places, container) {
+  // Clear the container before adding new cards
+  const cardsContainer = document.querySelector(container);
+  cardsContainer.innerHTML = "";
+
+  places.forEach((place) => {
+    const card = createCard(place.name, place.temp, place.img);
+
+    cardsContainer.insertAdjacentHTML("beforeend", card.outerHTML);
+  });
+}
+

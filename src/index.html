@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="/css/style.css" />
 
   <script src="/js/main.js" type="module"></script>
-  <script src="/js/default.js" type="module"></script>
 </head>
 
 <body>
@@ -20,11 +19,11 @@
       <div class="vertical hero-abs-left recommend-destination-card">
         <h3>Today's Recommended Destination</h3>
         <div class="horizontal">
-          <img src="/images/eiffel_tower.jpg" alt="Recommended Destination" class="destination-image" />
+          <img id="recommended-card-img" src="/images/eiffel_tower.jpg" alt="Recommended Destination" class="destination-image" />
           <div class="destination-info vertical">
-            <p>Paris, France</p>
-            <p>72°F Sunny</p>
-            <p>Short Fact Here. Short Fact Here. Short Fact Here. Short Fact Here. Short Fact Here. Short Fact Here.</p>
+            <p id="recommended-card-name">Paris, France</p>
+            <p id="recommended-card-temp">72°F Sunny</p>
+            <p id="recommended-card-fact">Short Fact Here. Short Fact Here. Short Fact Here. Short Fact Here. Short Fact Here. Short Fact Here.</p>
           </div>
         </div>
       </div>
@@ -40,7 +39,7 @@
     <div class="sections">
       <div class="section">
         <h1>Featured Destinations</h1>
-        <div class="grid destinations-grid">
+        <div id="recommend-destinations-container" class="grid destinations-grid">
 
           <div class="destination-card">
             <div class="img">
