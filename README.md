@@ -1,6 +1,6 @@
 ## [Wander Wise](#)
 
-***.env*** File
+### ***.env*** File
 ```
 VITE_RECOMMENDED_COUNTRY=Japan
 VITE_RECOMMENDED_COUNTRIES=Japan,Italy,New Zealand,Thailand,Iceland,Portugal,Morocco,Canada,Greece
